@@ -25,5 +25,13 @@ game_on = True
 while game_on:
     screen.update()
     ball.move()
+    #detect collision with wall
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        #bounce
+        ball.ybounce()
+    if padelR.distance(ball) < 100:
+        #bounce
+        ball.xbounce()
+
 
 screen.exitonclick()
