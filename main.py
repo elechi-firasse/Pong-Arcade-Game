@@ -1,3 +1,4 @@
+from itertools import count
 from turtle import Screen
 import time
 from scoreboard import ScoreBoard
@@ -26,7 +27,8 @@ screen.onkey(padelL.go_up, "w")
 screen.onkey(padelL.go_down, "s")
 
 game_on = True
-SLEEP_TIME = 0.01
+SLEEP_TIME = 0.002
+COUNT=0
 while game_on:
     time.sleep(SLEEP_TIME)
     screen.update()
@@ -46,14 +48,16 @@ while game_on:
         # padelL.reset_position()
         scoreboard.l_point()
         SLEEP_TIME /= 2
+        COUNT +=1
     # detect if Lpaddle misses
     if padelL.distance(ball) > 50 and ball.xcor() < -380:
         ball.reset_position()
         # padelR.reset_position()
         # padelL.reset_position()
         scoreboard.r_point()
-        SLEEP_TIME /= 1.5
-    if SLEEP_TIME < 0.001:
+        SLEEP_TIME /= 2
+        COUNT +=1
+    if COUNT == 5 :
         game_on = False
         scoreboard.end_game()
 
