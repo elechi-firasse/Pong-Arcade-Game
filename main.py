@@ -1,5 +1,5 @@
 from turtle import Screen
-
+import time
 from scoreboard import ScoreBoard
 
 from paddel import Paddle
@@ -26,7 +26,9 @@ screen.onkey(padelL.go_up, "w")
 screen.onkey(padelL.go_down, "s")
 
 game_on = True
+SLEEP_TIME = 0.01
 while game_on:
+    time.sleep(SLEEP_TIME)
     screen.update()
     ball.move()
     #detect collision with wall
@@ -40,15 +42,17 @@ while game_on:
     #detect if Rpaddle misses
     if padelR.distance(ball) > 50 and ball.xcor() > 380:
         ball.reset_position()
-        padelR.reset_position()
-        padelL.reset_position()
+        # padelR.reset_position()
+        # padelL.reset_position()
         scoreboard.l_point()
+        SLEEP_TIME /= 1.5
     # detect if Lpaddle misses
     if padelL.distance(ball) > 50 and ball.xcor() < -380:
         ball.reset_position()
-        padelR.reset_position()
-        padelL.reset_position()
+        # padelR.reset_position()
+        # padelL.reset_position()
         scoreboard.r_point()
+        SLEEP_TIME /= 1.5
 
 
 
