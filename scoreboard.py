@@ -22,3 +22,16 @@ class ScoreBoard(Turtle):
     def r_point(self):
         self.r_score += 1
         self.update_score()
+    def winner(self):
+        if self.l_score > self.r_score:
+            return "Left wins"
+        elif self.l_score < self.r_score:
+            return "Right wins"
+        else:
+            return "Draw"
+    def end_game(self):
+        self.clear()
+        self.goto(0, 0)
+        self.write(self.winner(), align="center", font=("Courier", 50, "normal"))
+
+

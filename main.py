@@ -53,6 +53,9 @@ while game_on:
         # padelL.reset_position()
         scoreboard.r_point()
         SLEEP_TIME /= 1.5
+    if SLEEP_TIME < 0.001:
+        game_on = False
+        scoreboard.end_game()
 
 
 
