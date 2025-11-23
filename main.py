@@ -45,7 +45,7 @@ while game_on:
         # padelR.reset_position()
         # padelL.reset_position()
         scoreboard.l_point()
-        SLEEP_TIME /= 1.5
+        SLEEP_TIME /= 2
     # detect if Lpaddle misses
     if padelL.distance(ball) > 50 and ball.xcor() < -380:
         ball.reset_position()
