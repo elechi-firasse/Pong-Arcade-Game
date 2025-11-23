@@ -1,4 +1,3 @@
-from itertools import count
 from turtle import Screen
 import time
 from scoreboard import ScoreBoard
